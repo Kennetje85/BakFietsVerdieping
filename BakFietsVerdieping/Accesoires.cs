@@ -12,4 +12,6 @@ namespace BakFietsVerdieping
         public bool IsChecked;
         public decimal Bedrag;
     }
+
+
 }

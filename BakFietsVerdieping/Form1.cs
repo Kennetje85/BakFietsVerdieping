@@ -15,6 +15,7 @@ namespace BakFietsVerdieping
         //declareren
         Database db = new Database();
         int Aantaldagen;
+        int Count;
         readonly string errorTotalMsg = @" Optie not a number";
         readonly string errorOptionOutOfRange = @"Option needs to be between 1 and 4";
         readonly string errorOngeldigWaarde = @"Ongeldig waarde";
@@ -177,6 +178,20 @@ namespace BakFietsVerdieping
             }
         }
 
+        public void accesoiresOptellen()
+        {
+            
+            if (regendakChkbox.Checked)
+            {
+                Count++;
+            }
+            else if (ZonnedakChkBox.Checked)
+            {
+                Count++;
+            }
+          
+        }
+
         private void bakfietsverhurenTxtbox_Click(object sender, EventArgs e)
         {
 
@@ -186,7 +201,9 @@ namespace BakFietsVerdieping
             }
             else
             {
+            //    db.verhuurAccesoiresInsert(Count);
                 db.insertVerhuur(Convert.ToInt32(selectBikeTxtbox.Text), DateTime.Now.ToString("yyyy-MM-dd"), Aantaldagen, calculate_Bikeprice(), Convert.ToInt32(klantnummerTxtbox.Text), Convert.ToInt32(verhuurnrValue.Value));
+            
             }
          }
 

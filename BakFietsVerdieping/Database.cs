@@ -45,7 +45,7 @@ namespace BakFietsVerdieping
         {
             if (IsConnect())
             {
-                string query2 = "INSERT INTO test.verhuur (bakfietsnummer,verhuurdatum,aantal_dagen,huurprijstotaal,klantnummer, verhuurder) VALUES ('" + bakfietsnummer + "', '" + verhuurdatum + "', '" + aantal_dagen + "','" + huurprijstotaal+ "', '" + klantnummer + "', '" + verhuurder + "' )";
+                string query2 = "INSERT INTO test.verhuur (bakfietsnummer,verhuurdatum,aantal_dagen,huurprijstotaal,klantnummer, verhuurder) VALUES ('" + bakfietsnummer + "', '" + verhuurdatum + "', '" + aantal_dagen + "','" + huurprijstotaal+ "', '" + klantnummer + "', '" + verhuurder + "' ) ";
                 MySqlCommand cmd1 = new MySqlCommand(query2, connection);
                 cmd1.ExecuteNonQuery();
                 MessageBox.Show("Bakfiets verhuurd!");
@@ -65,8 +65,15 @@ namespace BakFietsVerdieping
 
         }
 
-        public void verhuurInsert()
+        public void verhuurAccesoiresInsert(int aantal)
         {
+            if(IsConnect())
+            {
+                string query4 = "INSERT into test.verhuuraccessoire(aantal) VALUES('" + aantal + "')";
+                MySqlCommand cmd4 = new MySqlCommand(query4, connection);
+                cmd4.ExecuteNonQuery();
+                MessageBox.Show("De klantgegevens zijn geupdate");
+            }
 
         }
 
