@@ -65,7 +65,10 @@ namespace BakFietsVerdieping
 
         }
 
+        public void verhuurInsert()
+        {
 
+        }
 
     }
 }
