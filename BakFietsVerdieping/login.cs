@@ -57,7 +57,7 @@ namespace BakFietsVerdieping
 
                 if (count == 1)
                 {
-                    Form1 frm = new Form1();
+                    Verhuur frm = new Verhuur();
                     frm.Show();
                     MessageBox.Show("Login Successful!");
                 

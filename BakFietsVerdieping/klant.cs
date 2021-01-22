@@ -7,22 +7,22 @@ using System.Threading.Tasks;
 namespace BakFietsVerdieping
 {
 
-    public class klant1
+    public class Klant
     {
         private int klantnummer;
-        private string naam;
-        private string voornaam;
-        private string postcode;
-        private int huisnummer;
-        private string huisnummer_toevoeging;
-        private string opmerkingen;
-
+        public string naam;
+        public string voornaam;
+        public string postcode;
+        public int huisnummer;
+        public string huisnummer_toevoeging;
+        public string opmerkingen;
         public int Klantnummer
         {
             set { klantnummer = value; }
             get { return klantnummer; }
+            
         }
-
+        
         public string Naam
         {
             set { naam = value; }
@@ -56,8 +56,7 @@ namespace BakFietsVerdieping
             set { opmerkingen = value; }
             get { return opmerkingen; }
         }
-
-        public klant1(int klantnummer,string naam, string voornaam,string postcode, int huisnummer,string huisnummer_toevoeging, string opmerkingen)
+        public Klant(int klantnummer, string naam, string voornaam, string postcode, int huisnummer, string huisnummer_toevoeging,string opmerkingen)
         {
 
             this.klantnummer = klantnummer;
@@ -67,7 +66,10 @@ namespace BakFietsVerdieping
             this.huisnummer = huisnummer;
             this.huisnummer_toevoeging = huisnummer_toevoeging;
             this.opmerkingen = opmerkingen;
-
+            
         }
+
+
+       
     }
 }

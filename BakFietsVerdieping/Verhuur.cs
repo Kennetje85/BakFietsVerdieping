@@ -10,12 +10,15 @@ using System.Windows.Forms;
 
 namespace BakFietsVerdieping
 {
-    public partial class Form1 : Form
+    public partial class Verhuur : Form
     {
         //declareren
         Database db = new Database();
+
+     
+        string verhuurdatum = DateTime.Now.ToString("yyyy-MM-dd");
         int Aantaldagen;
-        int Count;
+
         readonly string errorTotalMsg = @" Optie not a number";
         readonly string errorOptionOutOfRange = @"Option needs to be between 1 and 4";
         readonly string errorOngeldigWaarde = @"Ongeldig waarde";
@@ -26,14 +29,19 @@ namespace BakFietsVerdieping
         readonly string Helm = @"Helm";
         readonly string Zonnedak = @"Zonnedak";
         int optionBike;
+
+        List<Klant> klanten;
         double[] AccesoiresPrice = new double[7]; //array
         decimal[] bikePrice = new decimal[3];
+       
         List<Accesoires> checkBoxItems = new List<Accesoires>();
-        public Form1()
+        
+        public Verhuur()
         {
+            
             //constructor , heeft dezelfde naam als de klasse (initialiseren)
             InitializeComponent();
-
+            
             bikePrice[0] = 0;
             bikePrice[1] = 20;
             bikePrice[2] = 40;
@@ -46,7 +54,7 @@ namespace BakFietsVerdieping
             AccesoiresPrice[5] = 1.00; //Kaarthouder
             AccesoiresPrice[6] = 1.50; //Helm
 
-        
+
         }
 
  
@@ -61,23 +69,29 @@ namespace BakFietsVerdieping
         private void KlantAddBtn_Click(object sender, EventArgs e)
         {
                 validate();  //functie methode aanroepen
+
+             
         }
 
         public void getString(decimal prijs) //argument prijs gegeven om parameter door te geven
         {
             Totaal.Text = string.Format("Totale Kosten met accesoires {0}", prijs);
-
+            
         }
+
+      
+
 
         public void showHuidigeHuur(decimal prijs)
         {
+           
             Totaal.Text = string.Format("Huidige huurkosten {0}", prijs);
         }
 
   
 
 
-        public decimal calculate_Bikeprice()
+        public decimal prijscalculeren()
         {
             decimal result = 0;
 
@@ -125,6 +139,9 @@ namespace BakFietsVerdieping
         public void validate()
         {
 
+
+            
+
             if (NameTxtbox.Text == "")
             {
                 errorProvider1.SetError(NameTxtbox, "Vul u naam in");
@@ -144,7 +161,7 @@ namespace BakFietsVerdieping
             } 
             else {
 
-                db.insertKlant(NameTxtbox.Text, VoornaamTxtBox.Text, PostCodeTxtBox.Text, HuisnrTxtBox.Text, ToevoegingTxtBox.Text, OpmerkingTxtBox.Text);
+                db.klantToevoegen(NameTxtbox.Text, VoornaamTxtBox.Text, PostCodeTxtBox.Text, HuisnrTxtBox.Text, ToevoegingTxtBox.Text, OpmerkingTxtBox.Text);
                 
                
             }
@@ -158,7 +175,7 @@ namespace BakFietsVerdieping
             //get value
             if (ValidateOption(selectBikeTxtbox.Text))
             {
-                showHuidigeHuur(calculate_Bikeprice());
+                showHuidigeHuur(prijscalculeren());
             }
             else
             {
@@ -170,7 +187,7 @@ namespace BakFietsVerdieping
         {
             if (ValidateOption(selectBikeTxtbox.Text))
             {
-                showHuidigeHuur(calculate_Bikeprice());
+                showHuidigeHuur(prijscalculeren());
             }
             else
             {
@@ -178,22 +195,12 @@ namespace BakFietsVerdieping
             }
         }
 
-        public void accesoiresOptellen()
-        {
-            
-            if (regendakChkbox.Checked)
-            {
-                Count++;
-            }
-            else if (ZonnedakChkBox.Checked)
-            {
-                Count++;
-            }
-          
-        }
+  
 
         private void bakfietsverhurenTxtbox_Click(object sender, EventArgs e)
         {
+
+           
 
             if (selectBikeTxtbox.Text == "" || klantnummerTxtbox.Text == "")
             {
@@ -202,7 +209,7 @@ namespace BakFietsVerdieping
             else
             {
             //    db.verhuurAccesoiresInsert(Count);
-                db.insertVerhuur(Convert.ToInt32(selectBikeTxtbox.Text), DateTime.Now.ToString("yyyy-MM-dd"), Aantaldagen, calculate_Bikeprice(), Convert.ToInt32(klantnummerTxtbox.Text), Convert.ToInt32(verhuurnrValue.Value));
+                db.bakfietsHuren(Convert.ToInt32(selectBikeTxtbox.Text), verhuurdatum  , Aantaldagen, prijscalculeren(), Convert.ToInt32(klantnummerTxtbox.Text), Convert.ToInt32(verhuurnrValue.Value));
             
             }
          }
@@ -217,10 +224,16 @@ namespace BakFietsVerdieping
 
             };
             checkBoxItems.Add(accessoire);
+            
         }
 
+       
+      
+        
+        
         private void RemoveFromAccessoryList(string name)
         {
+        
             checkBoxItems.RemoveAll((x) => x.Name == name);
         }
         private void regendakChkbox_CheckedChanged(object sender, EventArgs e)
@@ -230,29 +243,29 @@ namespace BakFietsVerdieping
             if (regendakChkbox.Checked)
             {
                 AddToAccessoryList(RegenDak, Convert.ToDecimal(AccesoiresPrice[1]));
-                showHuidigeHuur(calculate_Bikeprice());
+                showHuidigeHuur(prijscalculeren());
 
             }
             else
             {
                 RemoveFromAccessoryList(RegenDak);
-                showHuidigeHuur(calculate_Bikeprice());
+                showHuidigeHuur(prijscalculeren());
             }
         }
 
         private void ZonnedakChkBox_CheckedChanged(object sender, EventArgs e)
-        {
+        { 
 
             if (ZonnedakChkBox.Checked)
             {
                 AddToAccessoryList(Zonnedak, Convert.ToDecimal(AccesoiresPrice[2]));
-                showHuidigeHuur(calculate_Bikeprice());
+                showHuidigeHuur(prijscalculeren());
 
             }
             else
             {
                 RemoveFromAccessoryList(Zonnedak);
-                showHuidigeHuur(calculate_Bikeprice());
+                showHuidigeHuur(prijscalculeren());
             }
         }
 
@@ -261,13 +274,13 @@ namespace BakFietsVerdieping
             if (BabystoelChkbox.Checked)
             {
                 AddToAccessoryList(BabyStoeltje, Convert.ToDecimal(AccesoiresPrice[3]));
-                showHuidigeHuur(calculate_Bikeprice());
+                showHuidigeHuur(prijscalculeren());
 
             }
             else
             {
                 RemoveFromAccessoryList(BabyStoeltje);
-                showHuidigeHuur(calculate_Bikeprice());
+                showHuidigeHuur(prijscalculeren());
             }
         }
 
@@ -276,13 +289,13 @@ namespace BakFietsVerdieping
             if (SmarthomeChkbox.Checked)
             {
                 AddToAccessoryList(Smartphone, Convert.ToDecimal(AccesoiresPrice[4]));
-                showHuidigeHuur(calculate_Bikeprice());
+                showHuidigeHuur(prijscalculeren());
 
             }
             else
             {
                 RemoveFromAccessoryList(Smartphone);
-                showHuidigeHuur(calculate_Bikeprice());
+                showHuidigeHuur(prijscalculeren());
             }
         }
 
@@ -291,13 +304,13 @@ namespace BakFietsVerdieping
             if (KaarthouderChkbox.Checked)
             {
                 AddToAccessoryList(Kaarthouder, Convert.ToDecimal(AccesoiresPrice[5]));
-                showHuidigeHuur(calculate_Bikeprice());
+                showHuidigeHuur(prijscalculeren());
 
             }
             else
             {
                 RemoveFromAccessoryList(Kaarthouder);
-                showHuidigeHuur(calculate_Bikeprice());
+                showHuidigeHuur(prijscalculeren());
             }
         }
 
@@ -306,13 +319,13 @@ namespace BakFietsVerdieping
             if (helmChkbox.Checked)
             {
                 AddToAccessoryList(Helm, Convert.ToDecimal(AccesoiresPrice[6]));
-                showHuidigeHuur(calculate_Bikeprice());
+                showHuidigeHuur(prijscalculeren());
 
             }
             else
             {
                 RemoveFromAccessoryList(Helm);
-                showHuidigeHuur(calculate_Bikeprice());
+                showHuidigeHuur(prijscalculeren());
             }
         }
 
@@ -326,12 +339,27 @@ namespace BakFietsVerdieping
 
         private void button2_Click(object sender, EventArgs e)  //Klantdata weergeven
         {
-            klantDataset klantdata = new klantDataset();
-            klantdata.Show();
+            //  klantDataset klantdata = new klantDataset();
+            //  klantdata.Show();
+            getKlant();
+        }
+
+        public void getKlant()
+        {
+            klanten = db.getKlant();
+            foreach (Klant st in klanten)
+            {
+
+                Console.WriteLine(st.naam + ": " + st.Naam);
+
+            }
+
         }
 
         private void button3_Click(object sender, EventArgs e)    //Klant update 
         {
+
+
             if (klantnummerTxtbox.Text == "")
             {
                 MessageBox.Show("Vul de klantnummer in die je wilt aanpassen");

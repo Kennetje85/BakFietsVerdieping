@@ -23,5 +23,10 @@ namespace BakFietsVerdieping
             this.klantTableAdapter.Fill(this.klant1._klant);
 
         }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

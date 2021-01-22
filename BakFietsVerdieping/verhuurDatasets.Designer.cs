@@ -38,10 +38,10 @@ namespace BakFietsVerdieping
             this.verhuuraccessoireTableAdapter = new BakFietsVerdieping.klantTableAdapters.verhuuraccessoireTableAdapter();
             this.verhuurBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.fKverhuuraccverhuurBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.verhuur = new BakFietsVerdieping.verhuur();
+         //   this.verhuur = new BakFietsVerdieping.verhuur();
             this.verhuurBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.verhuurBindingSource3 = new System.Windows.Forms.BindingSource(this.components);
-            this.verhuurTableAdapter1 = new BakFietsVerdieping.verhuurTableAdapters.verhuurTableAdapter();
+      //      this.verhuurTableAdapter1 = new BakFietsVerdieping.verhuurTableAdapters.verhuurTableAdapter();
             this.verhuurnummerDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.verhuurdatumDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bakfietsnummerDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -55,7 +55,7 @@ namespace BakFietsVerdieping
             ((System.ComponentModel.ISupportInitialize)(this.fKverhuuraccverhuurBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.verhuurBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fKverhuuraccverhuurBindingSource1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.verhuur)).BeginInit();
+        //    ((System.ComponentModel.ISupportInitialize)(this.verhuur)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.verhuurBindingSource2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.verhuurBindingSource3)).BeginInit();
             this.SuspendLayout();
@@ -116,12 +116,12 @@ namespace BakFietsVerdieping
             // 
             // verhuur
             // 
-            this.verhuur.DataSetName = "verhuur";
-            this.verhuur.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+        //    this.verhuur.DataSetName = "verhuur";
+        //    this.verhuur.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // verhuurBindingSource2
             // 
-            this.verhuurBindingSource2.DataSource = this.verhuur;
+        //    this.verhuurBindingSource2.DataSource = this.verhuur;
             this.verhuurBindingSource2.Position = 0;
             // 
             // verhuurBindingSource3
@@ -131,7 +131,7 @@ namespace BakFietsVerdieping
             // 
             // verhuurTableAdapter1
             // 
-            this.verhuurTableAdapter1.ClearBeforeFill = true;
+        //    this.verhuurTableAdapter1.ClearBeforeFill = true;
             // 
             // verhuurnummerDataGridViewTextBoxColumn
             // 
@@ -204,7 +204,7 @@ namespace BakFietsVerdieping
             ((System.ComponentModel.ISupportInitialize)(this.fKverhuuraccverhuurBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.verhuurBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fKverhuuraccverhuurBindingSource1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.verhuur)).EndInit();
+          //  ((System.ComponentModel.ISupportInitialize)(this.verhuur)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.verhuurBindingSource2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.verhuurBindingSource3)).EndInit();
             this.ResumeLayout(false);
@@ -220,10 +220,10 @@ namespace BakFietsVerdieping
         private klantTableAdapters.verhuuraccessoireTableAdapter verhuuraccessoireTableAdapter;
         private System.Windows.Forms.BindingSource verhuurBindingSource1;
         private System.Windows.Forms.BindingSource verhuurBindingSource2;
-        private verhuur verhuur;
+       // private verhuur verhuur;
         private System.Windows.Forms.BindingSource fKverhuuraccverhuurBindingSource1;
         private System.Windows.Forms.BindingSource verhuurBindingSource3;
-        private verhuurTableAdapters.verhuurTableAdapter verhuurTableAdapter1;
+      //  private verhuurTableAdapters.verhuurTableAdapter verhuurTableAdapter1;
         private System.Windows.Forms.DataGridViewTextBoxColumn verhuurnummerDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn verhuurdatumDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn bakfietsnummerDataGridViewTextBoxColumn;

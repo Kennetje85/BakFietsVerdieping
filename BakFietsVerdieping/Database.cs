@@ -16,7 +16,7 @@ namespace BakFietsVerdieping
     {
         private string connString = string.Format("Server=localhost; database=test; UID=root; password=");
         private MySqlConnection connection = null; // connectie maken met de mysql database
-
+       
         public bool IsConnect()
         {
             if (connection == null)    //als er geen connectie dan wordt er connectie gemaakt met de database
@@ -24,11 +24,12 @@ namespace BakFietsVerdieping
                 connection = new MySqlConnection(connString);
                 connection.Open(); 
             }
+            
             return true;
         }
 
 
-        public void insertKlant(string name, string voornaam, string postcode, string huisnummer, string huisnummer_toevoeging, string opmerkingen)
+        public void klantToevoegen(string name, string voornaam, string postcode, string huisnummer, string huisnummer_toevoeging, string opmerkingen)
         {
 
             if (IsConnect())
@@ -41,7 +42,7 @@ namespace BakFietsVerdieping
             }
         }
 
-        public void insertVerhuur(int bakfietsnummer,string verhuurdatum,int aantal_dagen,decimal huurprijstotaal,int klantnummer, int verhuurder)
+        public void bakfietsHuren(int bakfietsnummer,string verhuurdatum,int aantal_dagen,decimal huurprijstotaal,int klantnummer, int verhuurder)
         {
             if (IsConnect())
             {
@@ -53,10 +54,11 @@ namespace BakFietsVerdieping
 
         }
 
-        public void KlantUpdate(string name, string voornaam, string postcode, string huisnummer, string huisnummer_toevoeging, string opmerkingen,int klantnummer)
+        public void KlantUpdate(string name , string voornaam, string postcode, string huisnummer, string huisnummer_toevoeging, string opmerkingen,int klantnummer)
         {
             if (IsConnect())
             {
+
                 string query3 = "UPDATE test.klant SET klant.naam='" + name + "' , klant.voornaam='" + voornaam + "', klant.postcode='" + postcode + "', klant.huisnummer='" + huisnummer + "' , klant.huisnummer_toevoeging ='" + huisnummer_toevoeging + "', klant.opmerkingen='" + opmerkingen + "' WHERE klant.klantnummer = '" + klantnummer + "' ";
                 MySqlCommand cmd3 = new MySqlCommand(query3, connection);
                 cmd3.ExecuteNonQuery();
@@ -65,17 +67,45 @@ namespace BakFietsVerdieping
 
         }
 
-        public void verhuurAccesoiresInsert(int aantal)
+      
+
+
+        public void Close()
         {
-            if(IsConnect())
+            if (connection != null)
             {
-                string query4 = "INSERT into test.verhuuraccessoire(aantal) VALUES('" + aantal + "')";
-                MySqlCommand cmd4 = new MySqlCommand(query4, connection);
-                cmd4.ExecuteNonQuery();
-                MessageBox.Show("De klantgegevens zijn geupdate");
+                connection.Close();
+                connection = null;
             }
-
         }
-
+        public List<Klant>getKlant()
+        {
+            List<Klant> studentList = new List<Klant>();
+            if (IsConnect())
+            {
+                    string query = "SELECT * FROM klant";
+                    MySqlCommand cmd = new MySqlCommand(query, connection);
+                    MySqlDataReader reader = cmd.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        int klantnummer = reader.GetInt32("klantnummer");
+                        string naam = reader.GetString("naam");
+                        string voornaam = reader.GetString("voornaam");
+                        string postcode = reader.GetString("postcode");
+                        int huisnummer = reader.GetInt32("huisnummer");
+                        string huisnummer_toevoeging = reader.GetString("huisnummer_toevoeging");
+                        string opmerkingen = reader.GetString("opmerkingen");
+                   
+                        Klant st = new Klant(klantnummer, naam, voornaam, postcode, huisnummer, huisnummer_toevoeging, opmerkingen);
+                        studentList.Add(st);
+                    }
+                    reader.Close();
+                    Close();
+                }
+                // Returns Klant
+                return studentList;
+            }
+        }
+       
     }
-}
+

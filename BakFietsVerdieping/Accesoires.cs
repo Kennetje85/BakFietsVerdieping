@@ -6,12 +6,19 @@ using System.Threading.Tasks;
 
 namespace BakFietsVerdieping
 {
+
+    
     class Accesoires
     {
         public string Name;
         public bool IsChecked;
         public decimal Bedrag;
+    
+
     }
 
 
+   
+
+   
 }
