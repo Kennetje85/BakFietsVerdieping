@@ -1,7 +1,7 @@
 ﻿
 namespace BakFietsVerdieping
 {
-    partial class Verhuur
+    partial class Bakfiets
     {
         /// <summary>
         /// Required designer variable.
@@ -69,14 +69,14 @@ namespace BakFietsVerdieping
             this.label11 = new System.Windows.Forms.Label();
             this.klantnummerTxtbox = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.KlantWijzigen = new System.Windows.Forms.Button();
             this.klant = new BakFietsVerdieping.klant();
             this.klant1 = new BakFietsVerdieping.klant();
             this.klantBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.klantTableAdapter = new BakFietsVerdieping.klantTableAdapters.klantTableAdapter();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.VerhuurBtn = new System.Windows.Forms.Button();
+            this.VerhuurgegevensBtn = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.aantaldagen)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -471,16 +471,16 @@ namespace BakFietsVerdieping
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // button3
+            // KlantWijzigen
             // 
-            this.button3.BackColor = System.Drawing.SystemColors.HotTrack;
-            this.button3.Location = new System.Drawing.Point(186, 189);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(163, 52);
-            this.button3.TabIndex = 24;
-            this.button3.Text = "KLANT UPDATE";
-            this.button3.UseVisualStyleBackColor = false;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.KlantWijzigen.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.KlantWijzigen.Location = new System.Drawing.Point(186, 189);
+            this.KlantWijzigen.Name = "KlantWijzigen";
+            this.KlantWijzigen.Size = new System.Drawing.Size(163, 52);
+            this.KlantWijzigen.TabIndex = 24;
+            this.KlantWijzigen.Text = "KLANT UPDATE";
+            this.KlantWijzigen.UseVisualStyleBackColor = false;
+            this.KlantWijzigen.Click += new System.EventHandler(this.KlantWijzigen_Click);
             // 
             // klant
             // 
@@ -522,25 +522,25 @@ namespace BakFietsVerdieping
             this.label12.TabIndex = 23;
             this.label12.Text = "Je dient als klant te registreren als je geen klantnummer hebt";
             // 
-            // VerhuurBtn
+            // VerhuurgegevensBtn
             // 
-            this.VerhuurBtn.Location = new System.Drawing.Point(569, 191);
-            this.VerhuurBtn.Name = "VerhuurBtn";
-            this.VerhuurBtn.Size = new System.Drawing.Size(180, 50);
-            this.VerhuurBtn.TabIndex = 27;
-            this.VerhuurBtn.Text = "Verhuurgegevens";
-            this.VerhuurBtn.UseVisualStyleBackColor = true;
-            this.VerhuurBtn.Click += new System.EventHandler(this.VerhuurBtn_Click_1);
+            this.VerhuurgegevensBtn.Location = new System.Drawing.Point(569, 191);
+            this.VerhuurgegevensBtn.Name = "VerhuurgegevensBtn";
+            this.VerhuurgegevensBtn.Size = new System.Drawing.Size(180, 50);
+            this.VerhuurgegevensBtn.TabIndex = 27;
+            this.VerhuurgegevensBtn.Text = "Verhuurgegevens";
+            this.VerhuurgegevensBtn.UseVisualStyleBackColor = true;
+            this.VerhuurgegevensBtn.Click += new System.EventHandler(this.VerhuurBtn_Click_1);
             // 
-            // Verhuur
+            // Bakfiets
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1454, 588);
-            this.Controls.Add(this.VerhuurBtn);
+            this.Controls.Add(this.VerhuurgegevensBtn);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.groupBox3);
-            this.Controls.Add(this.button3);
+            this.Controls.Add(this.KlantWijzigen);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.verhuurnrValue);
             this.Controls.Add(this.label10);
@@ -560,7 +560,7 @@ namespace BakFietsVerdieping
             this.Controls.Add(this.PostCodeTxtBox);
             this.Controls.Add(this.VoornaamTxtBox);
             this.Controls.Add(this.NameTxtbox);
-            this.Name = "Verhuur";
+            this.Name = "Bakfiets";
             this.Text = "Bakfiets";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBox1.ResumeLayout(false);
@@ -626,10 +626,10 @@ namespace BakFietsVerdieping
         private System.Windows.Forms.TextBox klantnummerTxtbox;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button KlantWijzigen;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.Button VerhuurBtn;
+        private System.Windows.Forms.Button VerhuurgegevensBtn;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
     }
 }

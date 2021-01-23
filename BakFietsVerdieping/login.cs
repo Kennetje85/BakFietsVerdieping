@@ -57,7 +57,7 @@ namespace BakFietsVerdieping
 
                 if (count == 1)
                 {
-                    Verhuur frm = new Verhuur();
+                    Bakfiets frm = new Bakfiets();
                     frm.Show();
                     MessageBox.Show("Login Successful!");
                 

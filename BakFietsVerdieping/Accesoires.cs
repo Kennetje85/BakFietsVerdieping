@@ -11,7 +11,7 @@ namespace BakFietsVerdieping
     class Accesoires
     {
         public string Name;
-        public bool IsChecked;
+        //public bool IsChecked;
         public decimal Bedrag;
     
 
