@@ -68,7 +68,7 @@ namespace BakFietsVerdieping
             this.bakfietsverhurenTxtbox = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
             this.klantnummerTxtbox = new System.Windows.Forms.TextBox();
-            this.button2 = new System.Windows.Forms.Button();
+            this.getKlantdata = new System.Windows.Forms.Button();
             this.KlantWijzigen = new System.Windows.Forms.Button();
             this.klant = new BakFietsVerdieping.klant();
             this.klant1 = new BakFietsVerdieping.klant();
@@ -460,16 +460,16 @@ namespace BakFietsVerdieping
             this.klantnummerTxtbox.TabIndex = 22;
             this.klantnummerTxtbox.TextChanged += new System.EventHandler(this.klantnummerTxtbox_TextChanged);
             // 
-            // button2
+            // getKlantdata
             // 
-            this.button2.BackColor = System.Drawing.SystemColors.Info;
-            this.button2.Location = new System.Drawing.Point(23, 189);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(156, 52);
-            this.button2.TabIndex = 23;
-            this.button2.Text = "klantgegevens";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.getKlantdata.BackColor = System.Drawing.SystemColors.Info;
+            this.getKlantdata.Location = new System.Drawing.Point(23, 189);
+            this.getKlantdata.Name = "getKlantdata";
+            this.getKlantdata.Size = new System.Drawing.Size(156, 52);
+            this.getKlantdata.TabIndex = 23;
+            this.getKlantdata.Text = "klantgegevens";
+            this.getKlantdata.UseVisualStyleBackColor = false;
+            this.getKlantdata.Click += new System.EventHandler(this.getKlantdata_Click);
             // 
             // KlantWijzigen
             // 
@@ -541,7 +541,7 @@ namespace BakFietsVerdieping
             this.Controls.Add(this.label12);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.KlantWijzigen);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.getKlantdata);
             this.Controls.Add(this.verhuurnrValue);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.Totaal);
@@ -625,7 +625,7 @@ namespace BakFietsVerdieping
         private System.Windows.Forms.Button bakfietsverhurenTxtbox;
         private System.Windows.Forms.TextBox klantnummerTxtbox;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button getKlantdata;
         private System.Windows.Forms.Button KlantWijzigen;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.GroupBox groupBox3;

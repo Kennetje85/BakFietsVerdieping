@@ -29,7 +29,7 @@ namespace BakFietsVerdieping
         readonly string Helm = @"Helm";
         readonly string Zonnedak = @"Zonnedak";
         int optionBike;
-
+        List<verhuur> verhuren;
         List<Klant> klanten;
         double[] AccesoiresPrice = new double[7]; //array
         decimal[] huurprijs = new decimal[3]; //huurprijs bike
@@ -332,7 +332,7 @@ namespace BakFietsVerdieping
             }
         }
 
-        private void button2_Click(object sender, EventArgs e)  //Klantdata weergeven
+        private void getKlantgegevens(object sender, EventArgs e)  //Klantdata weergeven
         {
             //  klantDataset klantdata = new klantDataset();
             //  klantdata.Show();
@@ -345,13 +345,25 @@ namespace BakFietsVerdieping
             foreach (Klant st in klanten)
             {
 
-                Console.WriteLine(st.naam + ": " + st.Naam);
+                Console.WriteLine("Klantnummer:"+st.Klantnummer + " klantnaam: " + st.naam + " klantvoornaam: " + st.voornaam + " Postcode:" + st.postcode + " huisnummer:" + st.huisnummer + " huisnummertoevoeging:" + st.huisnummer_toevoeging + " Opmerkingen:" + st.opmerkingen);
 
             }
 
         }
+            public void getVerhuur()
+            {
+                verhuren = db.getVerhuur();
+                foreach (verhuur st in verhuren)
+                {
 
-        private void klantAanpassen()    //Klant update 
+                    Console.WriteLine("Verhuurnummer:"+st.Verhuurnummer+ " verhuurdatum:" + st.verhuurdatum +" bakfietsnummer:"+ st.bakfietsnummer + " aantaldagen:" + st.aantal_dagen + " huurprijstotaal:" + st.huurprijstotaal + " klantnummer: " + st.klantnummer + " verhuurder: " + st.verhuurder);
+            }
+
+            }
+
+
+
+            private void klantAanpassen()    //Klant update 
         {
 
 
@@ -366,18 +378,10 @@ namespace BakFietsVerdieping
             }
         }
 
-        private void VerhuurgegvensBtn(object sender, EventArgs e)
-        {
-            verhuurDatasets verhuurdata = new verhuurDatasets();
-            verhuurdata.Show();
-        }
-
-  
 
         private void VerhuurBtn_Click_1(object sender, EventArgs e)
         {
-            verhuurDatasets verhuurdata = new verhuurDatasets();
-            verhuurdata.Show();
+            getVerhuur();
         }
 
         private void textBox1_TextChanged(object sender)
@@ -394,6 +398,11 @@ namespace BakFietsVerdieping
         private void bakfietsverhurenTxtbox_Click(object sender, EventArgs e)
         {
             bakfietsverhuren();
+        }
+
+        private void getKlantdata_Click(object sender, EventArgs e)
+        {
+            getKlant();
         }
     }
 }

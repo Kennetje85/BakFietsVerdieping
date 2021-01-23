@@ -94,12 +94,6 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="verhuur.cs" />
-    <Compile Include="verhuurDatasets.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="verhuurDatasets.Designer.cs">
-      <DependentUpon>verhuurDatasets.cs</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="Bakfiets.resx">
       <DependentUpon>Bakfiets.cs</DependentUpon>
     </EmbeddedResource>
@@ -118,9 +112,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="verhuurDatasets.resx">
-      <DependentUpon>verhuurDatasets.cs</DependentUpon>
-    </EmbeddedResource>
     <None Include="klant.xsc">
       <DependentUpon>klant.xsd</DependentUpon>
     </None>

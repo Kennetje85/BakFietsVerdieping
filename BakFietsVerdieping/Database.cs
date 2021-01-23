@@ -67,7 +67,33 @@ namespace BakFietsVerdieping
 
         }
 
-      
+        public List<verhuur> getVerhuur()
+        {
+            List<verhuur> verhuurList = new List<verhuur>();
+            if (IsConnect())
+            {
+                string query = "SELECT * FROM verhuur";
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                MySqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    int verhuurnummer = reader.GetInt32("verhuurnummer");
+                    string verhuurdatum = reader.GetString("verhuurdatum");
+                    int bakfietsnummer = reader.GetInt32("bakfietsnummer");
+                    int aantal_dagen = reader.GetInt32("aantal_dagen");
+                    decimal huurprijstotaal = reader.GetDecimal("huurprijstotaal");
+                    int klantnummer = reader.GetInt32("klantnummer");
+                    int verhuurder = reader.GetInt32("verhuurder");
+
+                    verhuur st = new verhuur(verhuurnummer, verhuurdatum, bakfietsnummer, aantal_dagen, huurprijstotaal, klantnummer, verhuurder);
+                    verhuurList.Add(st);
+                }
+                reader.Close();
+                Close();
+            }
+            // Returns Klant
+            return verhuurList;
+        }
 
 
         public void Close()

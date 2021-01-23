@@ -11,7 +11,7 @@ namespace BakFietsVerdieping
         private int verhuurnummer;
         public string verhuurdatum;
         public int bakfietsnummer;
-        public int aantaldagen;
+        public int aantal_dagen;
         public decimal huurprijstotaal;
         public int klantnummer;
         public int verhuurder;
@@ -36,10 +36,10 @@ namespace BakFietsVerdieping
             get { return bakfietsnummer; }
 
         }
-        public int Aantaldagen
+        public int Aantal_dagen
         {
-            set { aantaldagen = value; }
-            get { return aantaldagen; }
+            set { aantal_dagen = value; }
+            get { return aantal_dagen; }
 
         }
 
@@ -62,8 +62,15 @@ namespace BakFietsVerdieping
 
         }
 
-        public verhuur()
+        public verhuur(int verhuurnummer,string verhuurdatum,int bakfietsnummer,int aantal_dagen,decimal huurprijstotaal,int klantnummer, int verhuurder)
         {
+            this.verhuurnummer = verhuurnummer;
+            this.verhuurdatum = verhuurdatum;
+            this.bakfietsnummer = bakfietsnummer;
+            this.aantal_dagen = aantal_dagen;
+            this.huurprijstotaal = huurprijstotaal;
+            this.klantnummer = klantnummer;
+            this.verhuurder = verhuurder;
 
         }
 
