@@ -74,17 +74,6 @@
       <DependentUpon>Bakfiets.cs</DependentUpon>
     </Compile>
     <Compile Include="Klant.cs" />
-    <Compile Include="klant.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>klant.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="klantDataset.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="klantDataset.Designer.cs">
-      <DependentUpon>klantDataset.cs</DependentUpon>
-    </Compile>
     <Compile Include="login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -96,9 +85,6 @@
     <Compile Include="verhuur.cs" />
     <EmbeddedResource Include="Bakfiets.resx">
       <DependentUpon>Bakfiets.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="klantDataset.resx">
-      <DependentUpon>klantDataset.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="login.resx">
       <DependentUpon>login.cs</DependentUpon>
@@ -112,17 +98,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <None Include="klant.xsc">
-      <DependentUpon>klant.xsd</DependentUpon>
-    </None>
-    <None Include="klant.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>klant.Designer.cs</LastGenOutput>
-    </None>
-    <None Include="klant.xss">
-      <DependentUpon>klant.xsd</DependentUpon>
-    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

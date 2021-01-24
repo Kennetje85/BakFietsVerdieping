@@ -70,10 +70,9 @@ namespace BakFietsVerdieping
             this.klantnummerTxtbox = new System.Windows.Forms.TextBox();
             this.getKlantdata = new System.Windows.Forms.Button();
             this.KlantWijzigen = new System.Windows.Forms.Button();
-            this.klant = new BakFietsVerdieping.klant();
-            this.klant1 = new BakFietsVerdieping.klant();
+        
             this.klantBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.klantTableAdapter = new BakFietsVerdieping.klantTableAdapters.klantTableAdapter();
+           // this.klantTableAdapter = new BakFietsVerdieping.klantTableAdapters.klantTableAdapter();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label12 = new System.Windows.Forms.Label();
             this.VerhuurgegevensBtn = new System.Windows.Forms.Button();
@@ -85,8 +84,7 @@ namespace BakFietsVerdieping
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.verhuurnrValue)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.klant)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.klant1)).BeginInit();
+
             ((System.ComponentModel.ISupportInitialize)(this.klantBindingSource)).BeginInit();
             this.groupBox3.SuspendLayout();
             this.SuspendLayout();
@@ -484,22 +482,17 @@ namespace BakFietsVerdieping
             // 
             // klant
             // 
-            this.klant.DataSetName = "klant";
-            this.klant.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // klant1
-            // 
-            this.klant1.DataSetName = "klant";
-            this.klant1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+
+         
             // 
             // klantBindingSource
             // 
             this.klantBindingSource.DataMember = "klant";
-            this.klantBindingSource.DataSource = this.klant1;
+  
             // 
             // klantTableAdapter
             // 
-            this.klantTableAdapter.ClearBeforeFill = true;
+    
             // 
             // groupBox3
             // 
@@ -562,7 +555,7 @@ namespace BakFietsVerdieping
             this.Controls.Add(this.NameTxtbox);
             this.Name = "Bakfiets";
             this.Text = "Bakfiets";
-            this.Load += new System.EventHandler(this.Form1_Load);
+        //    this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.aantaldagen)).EndInit();
@@ -573,8 +566,6 @@ namespace BakFietsVerdieping
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.verhuurnrValue)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.klant)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.klant1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.klantBindingSource)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
@@ -584,10 +575,9 @@ namespace BakFietsVerdieping
         }
 
         #endregion
-        private klant klant;
-        private klant klant1;
+        
         private System.Windows.Forms.BindingSource klantBindingSource;
-        private klantTableAdapters.klantTableAdapter klantTableAdapter;
+    
         private System.Windows.Forms.TextBox NameTxtbox;
         private System.Windows.Forms.TextBox VoornaamTxtBox;
         private System.Windows.Forms.TextBox PostCodeTxtBox;

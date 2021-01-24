@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace BakFietsVerdieping
 {
 
-    
+    //deze klasse wordt gebruik gemaakt in de klasse bakfiets
     class Accesoires
     {
         public string Name;

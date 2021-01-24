@@ -34,7 +34,7 @@ namespace BakFietsVerdieping
         double[] AccesoiresPrice = new double[7]; //array
         decimal[] huurprijs = new decimal[3]; //huurprijs bike
        
-        List<Accesoires> checkBoxItems = new List<Accesoires>();
+        List<Accesoires> checkBoxItems = new List<Accesoires>();   //klasse Accessoires 
         
         public Bakfiets()
         {
@@ -58,13 +58,6 @@ namespace BakFietsVerdieping
         }
 
  
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            // TODO: This line of code loads data into the 'klant1._klant' table. You can move, or remove it, as needed.
-            this.klantTableAdapter.Fill(this.klant1._klant);
-            //De TableAdapter is een snelle manier om een DataTable te vullen met gegevens uit een database.
-        }
-
       
         private void KlantAddBtn_Click(object sender, EventArgs e)
         {
